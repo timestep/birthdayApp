@@ -11,7 +11,13 @@
   <h1>Hello {{user.first_name}}</h1> 
 </div>
 
-<div class="jumbotron" ng-show='isLoggedIn'>
+<div class="jumbotron" ng-show='isLoggedIn && !isBirthday'>
+  <h1>It's not your birthday!</h1>
+  <h3>Come back when it is!</h3>
+  <h4>Thats in {{numberOfDays}} days!</h4>
+</div>
+
+<div class="jumbotron" ng-show='isLoggedIn && isBirthday'>
   <div class="row" ng-show='isLoggedIn'>
     <div class="col-xs-4" ng-show='photos' ng-repeat='p in photos.data'>
       <img src="{{p.picture}}" alt="">
