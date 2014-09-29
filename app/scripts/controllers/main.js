@@ -21,6 +21,9 @@ angular.module('birthdayAppApp')
       // From now on you can use the Facebook service just as Facebook api says
       Facebook.login(function(response) {
         console.log(response);
+        if(response.error || !response.authResponse){
+          return;
+        }
         Facebook.api('/me',function (response) {
           $scope.isLoggedIn = true;
           $scope.user = response;
