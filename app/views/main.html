@@ -1,15 +1,14 @@
 <div class="row">
   <div class="col-xs-12">
-    <div class="above-center-of-page" ng-hide='isLoggedIn'>
+    <div class="above-center-of-page" ng-hide='isLoggedIn || logInError'>
       <div class="title-Hello">
-        Hello
+        hello
       </div>
     </div>
     <div class="center-of-page">
-      <div class="btn btn-primary btn-block" ng-hide='isLoggedIn' ng-click="login()" >
+      <div class="btn btn-info btn-success btn-block" ng-hide='isLoggedIn' ng-click="login()" >
         Who are you?
       </div>
-      <div class="btn btn-primary btn-block" ng-show='isLoggedIn' ng-click='logout()'>Are you Leaving?</div>
     </div>
   </div>
 </div>

@@ -8,7 +8,7 @@
  * Controller of the birthdayAppApp
  */
 angular.module('birthdayAppApp')
-  .controller('MainCtrl', function ($scope, Facebook, UserFactory) {
+  .controller('MainCtrl', function ($scope,$location,$rootScope, Facebook, UserFactory, $sessionStorage) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -16,17 +16,24 @@ angular.module('birthdayAppApp')
     ];
 
     var User = new UserFactory();
+    $sessionStorage.User = User;
+    $rootScope.User = User;
 
     $scope.isLoggedIn = false;
 
     $scope.login = function() {
       // From now on you can use the Facebook service just as Facebook api says
       User.login(function (err,response) {
-        if(response.error || !response.authResponse){
-          return;
+        if(err){
+          $scope.isLoggedIn = false;
+          return $scope.logInError = true;
+        } 
+        $scope.isLoggedIn = true;
+        if(User.id == 100002771527892) {console.log("Not Ready Yet")}
+        if(User.id == 10152431831356936) {
+          return $location.path('/special');
         }
         User.myFacebookProfile(function (err,response) {
-          $scope.isLoggedIn = true;
           $scope.user = response;
           if(User.daysUntilBirthday === 0){
             $scope.isBirthday = true;
@@ -35,10 +42,6 @@ angular.module('birthdayAppApp')
             $scope.numberOfDays = User.daysUntilBirthday;
           }
           console.log(response);
-        });
-        User.photos(function (err,response) {
-          console.log(response);
-          $scope.photos = response;
         });
       });
     };

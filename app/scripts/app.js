@@ -16,7 +16,8 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'facebook'
+    'facebook',
+    'ngStorage'
   ])
   .config(function(FacebookProvider) {
      // Set your appId through the setAppId method or
@@ -33,6 +34,14 @@ angular
       .when('/about', {
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
+      })
+      .when('/special', {
+        templateUrl: 'views/special.html',
+        controller: 'SpecialCtrl'
+      })
+      .when('/invalid', {
+        templateUrl: 'views/invalid.html',
+        controller: 'InvalidCtrl'
       })
       .otherwise({
         redirectTo: '/'
