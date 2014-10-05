@@ -22,8 +22,8 @@ angular
   .config(function(FacebookProvider) {
      // Set your appId through the setAppId method or
      // use the shortcut in the initialize method directly.
-     // FacebookProvider.init('356467201195014');
-     FacebookProvider.init('356471304527937'); //test
+     FacebookProvider.init('356467201195014');
+     // FacebookProvider.init('356471304527937'); //test
   })
   .config(function ($routeProvider) {
     $routeProvider
