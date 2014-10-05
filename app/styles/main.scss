@@ -28,6 +28,12 @@ html, body, .container {
   color: white;
 }
 
+.vcenter {
+  display: inline-block;
+  vertical-align: middle;
+  float: none;
+}
+
 .center-of-page {
   position: fixed;
   top: 50%;

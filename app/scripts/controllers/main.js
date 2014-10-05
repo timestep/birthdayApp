@@ -29,9 +29,11 @@ angular.module('birthdayAppApp')
           return $scope.logInError = true;
         } 
         $scope.isLoggedIn = true;
-        if(User.id == 100002771527892) {console.log("Not Ready Yet")}
+        if(User.id == 100002771527892) {
+          return $location.path('/special')
+        }
         if(User.id == 10152431831356936) {
-          return $location.path('/special');
+          return $location.path('/placeholder');
         }
         User.myFacebookProfile(function (err,response) {
           $scope.user = response;
