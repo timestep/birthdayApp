@@ -3,6 +3,50 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
 
+html, body, .container {
+  height: 100%;
+}
+
+#parent {    
+  text-align: center;
+}
+
+#child {
+  margin: 0 auto;
+  display: inline-block;
+  color: white;
+}
+
+.center-of-page {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.above-center-of-page{
+  position: fixed;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  // top: 40%;
+}
+
+.title-Hello{
+  @media(max-width:767px){
+    font-size: 256px;
+  }
+  @media(min-width:992px){
+    font-size: 330px;
+  }
+  @media(min-width:768px){
+    font-size: 256px;
+  }
+  @media(min-width:1200px){
+    font-size: 400px;
+  }
+}
+
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
